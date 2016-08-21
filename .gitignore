@@ -1,0 +1,8 @@
+*.properties
+*.iml
+*.class
+*.jar
+
+META-INF/
+out/
+.idea/
