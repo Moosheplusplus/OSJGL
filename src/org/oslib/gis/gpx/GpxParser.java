@@ -39,7 +39,6 @@ public class GpxParser {
 				this.path = name;
 			else
 				this.path += "."+name;
-
 			if(name.equals("RTE")) {
 				GpxTrack track = new GpxTrack();
 				track.add(new GpxSegment(track));
@@ -87,7 +86,9 @@ public class GpxParser {
 		}
 
 		private void handleRoute(String name, String content, boolean route) throws SAXException {
-			GpxTrack track = gpx.get(gpx.size() - 1);
+			GpxTrack track = gpx.get(Math.min(0, gpx.size() - 1));
+			if(track.size() < 1)
+				return;
 			GpxSegment seg = track.get(track.size() - 1);
 			if(!path.startsWith(route ? "GPX.RTE.RTEPT" : "GPX.TRK.TRKPT") && name.equals("NAME"))
 				gpx.get(gpx.size() - 1).setName(content);
