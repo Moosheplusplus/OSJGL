@@ -18,7 +18,7 @@ _*exporting GPX Tracks will convert it to a GPX Route file._
 ### How do I import a GPX file?
 
 Here is an example on importing a GPX file:
-```
+```java
 import org.oslib.gis.gpx.*;
 ...
 
@@ -28,7 +28,7 @@ Gpx gpx = GpxParser.parse(new java.io.File("/path/to/file.gpx");
 ### How do I get the coordinates inside the GPX object?
 
 Here is an example of calculating the total distance of the GPX path:
-```
+```java
 import org.oslib.gis.gpx.*;
 ...
 
@@ -50,7 +50,7 @@ System.out.println("Total distance in kilometers: "+km);
 ### How do I get the meta data of the GPX object?
 
 Here is an example of getting the Meta Data values from the GPX file.
-```
+```java
 String name   = gpx.getMetaData().getName();
 String author = gpx.getMetaData().getAuthor();
 String desc   = gpx.getMetaData().getDescription();
@@ -62,14 +62,14 @@ String keys   = gpx.getMetaData().getKeyWords();
 ### How do I set the meta data of the GPX object?
 
 Here is an example of setting the name of the GPX file.
-```
+```java
 gpx.getMetaData().setName("Santa Monica Pier");
 ```
 
 ### How do I export a GPX object?
 
 Here is an example of exporting an already existing GPX file.
-```
+```java
 import org.oslib.gis.gpx.*;
 ...
 
