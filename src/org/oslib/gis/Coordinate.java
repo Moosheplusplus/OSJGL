@@ -159,10 +159,7 @@ public class Coordinate {
 
 	@Override
 	public boolean equals(Object coord) {
-		if(!(coord instanceof Coordinate))
-			return false;
-		Coordinate c = (Coordinate) coord;
-		return c.latitude == latitude && c.longitude == longitude;
+		return coord.hashCode() == hashCode();
 	}
 
 	@Override

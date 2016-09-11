@@ -1,5 +1,6 @@
 package org.oslib.gis.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -32,6 +33,12 @@ public class TimeUtil {
 		cal.set(year, month, day, hour, minute, second);
 		cal.setTimeZone(TimeZone.getTimeZone(c[2].replaceAll("[\\d+]", "")));
 		return cal.getTime();
+	}
+
+	public static String gpxTime(Date date) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		format.setTimeZone(TimeZone.getTimeZone("Z"));
+		return format.format(date).replace(" ", "T")+"Z";
 	}
 
 	private static int softInt(String str) {

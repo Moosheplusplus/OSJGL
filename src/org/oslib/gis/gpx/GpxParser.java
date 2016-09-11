@@ -13,6 +13,14 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class GpxParser {
 
+	/**
+	 * Parses the GPX track or route file.
+	 *
+	 * @param file The file to parse
+	 * @return The {@link Gpx} instance.
+	 * @throws IOException If the file could not be properly loaded due to
+	 * the file being malformed or missing, this will be thrown.
+	 */
 	public static Gpx parse(File file) throws IOException {
 		try {
 			GpxHandler handler = new GpxHandler();
@@ -59,7 +67,7 @@ public class GpxParser {
 				double d2 = Double.parseDouble(attr.getValue("minlon"));
 				double d3 = Double.parseDouble(attr.getValue("maxlat"));
 				double d4 = Double.parseDouble(attr.getValue("maxlon"));
-				gpx.getMetaData().setBounds(new Rectangle.Double(d1, d2, d3, d4));
+				gpx.getMetaData().setBounds(new Rectangle.Double(d1, d2, d3 - d1, d4 - d2));
 			}
 		}
 

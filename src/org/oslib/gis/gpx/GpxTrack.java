@@ -33,10 +33,10 @@ public class GpxTrack extends ArrayList<GpxSegment> {
 	 *
 	 * @return The total distance in meters.
 	 */
-	public double length() {
+	public double distance() {
 		double dist = 0;
 		for (GpxSegment trackPoints : this)
-			dist += trackPoints.length();
+			dist += trackPoints.distance();
 		return dist;
 	}
 }

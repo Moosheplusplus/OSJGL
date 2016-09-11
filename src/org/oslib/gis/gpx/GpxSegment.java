@@ -23,7 +23,7 @@ public class GpxSegment extends ArrayList<GpxWayPoint> {
 	 *
 	 * @return The distance in meters
 	 */
-	public double length() {
+	public double distance() {
 		if(size() < 1)
 			return 0;
 
